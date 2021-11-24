@@ -103,3 +103,9 @@ a.lien:active {
   height: 20px;
   margin-top: -20px;
 }
+
+#info {
+  float: left;
+  padding-left: 10px;
+  padding-right: 10px;
+}

@@ -9,17 +9,23 @@ const server = app.listen(port, () => {
   console.log("Cart app listening at http://localhost:${port}");
 });
 
-//send an HTTP response when recieving HTTP GET /
+//handling static HTML and EJS templates
 app.use(express.static("public"));
 app.set("view engine", "ejs");
 app.get("/", (req, res) => {
-  res.sendFile("index");
+  res.render("indexs");
 });
 
-//route for contacts
-app.set("view engine", "ejs");
-app.get("/contacts/", (req, res) => {
+app.get("/contacts", (req, res) => {
   res.render("contacts");
 });
 
-//handling static HTML and EJS templates
+app.get("/login", (req, res) => {
+  res.render("login");
+});
+
+app.get("/register", (req, res) => {
+  res.render("register");
+});
+const router = require("./routes/apis");
+app.use(router);
