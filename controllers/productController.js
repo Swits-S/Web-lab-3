@@ -9,15 +9,14 @@ const getProductByID = (request, response) => {
   const catalogServices = require("../services/productServices");
   let reference = request.params.reference;
   catalogServices.searchIDService(reference, function (err, rows) {
-    response.json(rows);
-    response.end();
+    response.render("article", { products: rows });
   });
 };
 
 const getProductsByCategory = (request, response) => {
   const catalogServices = require("../services/productServices");
   let reference = request.params.category;
-  catalogServices.searchCategoryService(category, function (err, rows) {
+  catalogServices.searchCategoryService(reference, function (err, rows) {
     response.json(rows);
     response.end();
   });
